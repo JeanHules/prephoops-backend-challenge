@@ -4,11 +4,11 @@
 
 This exercise will have the candidate build a simple API which will generate JSON data used to populate the nav of the PrepHoops Frontend Challenge.
 
-## Deviverables
+## Deliverables
 
--   A forked version of this repo with an attached database file or migration files we can use to setup your code on our local environments.
+-   A forked version of this repo with an attached MySQL database file with the database structure and contents so we are able to recreate your system on our local environments
 
-Here are the guidelines for this exercise
+## Guidelines
 
 -   Laravel is the preferred framework, but if you'd like to use another PHP framework, go for it.
 -   Auth is not required as this will be a public endpoint
@@ -26,6 +26,8 @@ composer install
 php artisan serve
 ```
 
-### Endpoints
+### Requested Endpoints
 
--   **/nav**
+Create an endpoint that replicates the data found in the nav.json file at the root of this project.
+
+-   **localhost:8000/nav**
