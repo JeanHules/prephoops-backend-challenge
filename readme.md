@@ -20,7 +20,7 @@ This exercise will have the candidate build a simple API which will generate JSO
 ## Get Started
 
 ```
-git clone git@github.com:JeanHules/prephoops-backend-challenge.git
+git clone https://github.com/JeanHules/prephoops-backend-challenge.git
 cd prephoops-backend-challenge
 composer install
 php artisan key:generate
