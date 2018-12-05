@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// leaves the ablity to add more API curd routes in the future
+Route::apiResource('nav', 'NavController')->only(['index']);
