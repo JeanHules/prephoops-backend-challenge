@@ -1,9 +1,11 @@
 <!doctype html>
+<?php session_start();
+  echo("<script>console.log(".json_encode($sections).");</script>");
+?>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <title>Laravel</title>
 
         <!-- Fonts -->
@@ -65,28 +67,29 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
             <div class="content">
-                <div class="title m-b-md">
-                    Prep Hoops
-                </div>
-
-                <div class="links">
-                    <a href="/nav">Get Data</a>
-                </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Label</th>
+                        <th>Url</th>
+                        <th>Items</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($sections as $section) { ?>                               
+                        <tr>
+                            <td>{{$section->label}}</td>
+                            <td>{{$section->url}}</td>
+                            <?php foreach($items as $item) { 
+                                if ($item->section_id==$section->id){?>
+                                <td>["label":{{$item->label}}, "url":{{$item->url}}]</td>
+                                <?php } ?>
+                            <?php } ?>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
             </div>
         </div>
     </body>
